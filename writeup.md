@@ -35,19 +35,19 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and decided to go with `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` because the classifer trained with the HOG features using the above parameters works fine.
+I tried various combinations of parameters and decided to go with `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` because the classifier trained with the HOG features using the above parameters works fine.
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 In the 7th cell of the IPython notebook, I trained a SVM using GridSearchCV with parameters `{'kernel':('linear', 'rbf'), 'C':[1, 10]}`. GridSearchCV ended up choosing rbf as kernal.
 
-I used RGB channels with histogram bin size 32 and spatially bined color with size `(32, 32)` as additional features.
+I used RGB channels with histogram bin size 32 and spatially binned color with size `(32, 32)` as additional features.
 
 ### Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I choosed scale 1, windows size 64 and overlapping 16 pixels (~67%) per window. The result seemed ok.
+I chose scale 1, windows size 64 and overlapping 16 pixels (~67%) per window. The result seemed ok.
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
@@ -84,7 +84,7 @@ In the beginning I use HLS color space to extract all the features, including sp
 
 The other issue I had was that the classifier generates false positives. I use heatmap and adjust the threshold value and it helped.
 
-The pipeline might failed if the video is filmed at night or ranny day. To make it more robust I think more image preprocessing is necessary. For example use more than one color space features. Also the sampling rate of HOG, bin size of histogram and many other combinations of parameters should also be tested to fit different scenarios.
+The pipeline might fail if the video is filmed at night or rainy day. To make it more robust I think more image preprocessing is necessary. For example, use more than one color space features. Also, the sampling rate of HOG, bin size of the histogram and many other combinations of parameters should also be tested to fit different scenarios.
 
-Another potential improvement is to smooth out the bounding boxes. Because we already know that cars in the video move in a steady speed and known direction, we can leverage this fact and predict where the next boudning box should be. Combining the prediction with the result obtained from the classifier we should be able to get a pretty smooth result.
+Another potential improvement is to smooth out the bounding boxes. Because we already know that cars in the video move at a steady speed and known direction, we can leverage this fact and predict where the next bounding box should be. Combining the prediction with the result obtained from the classifier we should be able to get a pretty smooth result.
 
