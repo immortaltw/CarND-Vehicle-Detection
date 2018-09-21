@@ -47,7 +47,7 @@ I used RGB channels with histogram bin size 32 and spatially binned color with s
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I chose scale 1, windows size 64 and overlapping 16 pixels (~67%) per window. The result seemed ok.
+I chose scale 1, windows size 64 and overlapping 16 pixels (75%) per window. The result seemed ok.
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
