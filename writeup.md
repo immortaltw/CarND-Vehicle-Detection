@@ -15,10 +15,7 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/sliding_windows_ycrcb.png
 [image4]: ./output_images/heatmap_ycrcb.png
 
-## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.
-
----
+## Project Discussions
 
 ### Histogram of Oriented Gradients (HOG)
 
